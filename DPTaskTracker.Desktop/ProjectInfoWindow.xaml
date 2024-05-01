@@ -1,0 +1,91 @@
+﻿<Window x:Class="DPTaskTracker.Desktop.ProjectInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DPTaskTracker.Desktop"
+        mc:Ignorable="d"
+        Title="Проект" Width="1366" MinWidth="1366" Height="768" MinHeight="768" WindowState="Maximized"
+        WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Closed="ProjectInfoWindow_OnClosed" Loaded="ProjectInfoWindow_OnLoaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="75" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#212529">
+            <TextBlock x:Name="TbWelcome" Text="Проект" Foreground="#ffffff" FontSize="22"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Button x:Name="BtnExit" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Margin="20 0 0 0" Padding="30 5"
+                    Background="#ffffff" BorderBrush="#ffffff" Foreground="#212529" FontSize="15"
+                    TextBlock.FontSize="18" Click="BtnExit_OnClick"/>
+            <Button x:Name="BtnUpdateProject" Content="Редактировать" HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Margin="0 0 20 0" Padding="30 5"
+                    Background="#ffffff" BorderBrush="#ffffff" Foreground="#212529" FontSize="15"
+                    TextBlock.FontSize="18" Click="BtnUpdateProject_OnClick"/>
+        </Grid>
+
+        <DataGrid x:Name="DataGridTasks" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  FontSize="18"
+                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"
+                  AutoGenerateColumns="False" SelectionMode="Single"
+                  RowHeaderWidth="0" Padding="2" HorizontalGridLinesBrush="LightGray" Foreground="#212529"
+                  GridLinesVisibility="Horizontal" RowHeight="35" IsReadOnly="True">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="CmUpdateTask" Header="Редактировать" Click="CmUpdateTask_OnClick"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Задача" Width="400" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Описание" Width="*" Binding="{Binding Path=Description}"/>
+                <DataGridTextColumn Header="Исполнитель" Width="200" Binding="{Binding Path=Username}"/>
+                <DataGridTextColumn Header="Статус" Width="200" Binding="{Binding Path=StatusCode}"/>
+                <DataGridTextColumn Header="Id" Width="*" Visibility="Collapsed" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="UserId" Width="*" Visibility="Collapsed" Binding="{Binding Path=UserId}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <DataGrid x:Name="DataGridUsers" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  FontSize="18"
+                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"
+                  AutoGenerateColumns="False" SelectionMode="Single"
+                  RowHeaderWidth="0" Padding="2" HorizontalGridLinesBrush="LightGray" Foreground="#212529"
+                  GridLinesVisibility="Horizontal" RowHeight="35" IsReadOnly="True">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="CmUserRemove" Header="Исключить" Click="CmUserRemove_OnClick"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Пользователь" Width="*" Binding="{Binding Path=Username}"/>
+                <DataGridTextColumn Header="Почта" Width="*" Binding="{Binding Path=Email}"/>
+                <DataGridTextColumn Header="Роль" Width="150" Binding="{Binding Path=RoleString}"/>
+                <DataGridTextColumn Header="Id" Width="*" Visibility="Collapsed" Binding="{Binding Path=Id}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="3" Background="#212529">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="BtnTaskAdd" Content="Добавить задачу" HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Margin="0 0 5 0" Padding="50 5"
+                    Background="#ffffff" BorderBrush="#ffffff" Foreground="#212529" FontSize="15"
+                    TextBlock.FontSize="18" Click="BtnTaskAdd_OnClick"/>
+            <Button Grid.Column="1" x:Name="BtnUserAdd" Content="Добавить пользователя" HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Margin="5 0 0 0" Padding="50 5"
+                    Background="#ffffff" BorderBrush="#ffffff" Foreground="#212529" FontSize="15"
+                    TextBlock.FontSize="18" Click="BtnUserAdd_OnClick"/>
+        </Grid>
+
+        <Button Grid.Row="3" x:Name="BtnProjectChat" Content="Чат проекта" HorizontalAlignment="Right" VerticalAlignment="Center"
+                Margin="0 0 10 0" Padding="20 5"
+                Background="#ffffff" BorderBrush="#ffffff" Foreground="#212529" FontSize="15"
+                TextBlock.FontSize="18" Click="BtnProjectChat_OnClick"/>
+    </Grid>
+</Window>

@@ -7,4 +7,14 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\DPTaskTracker.Application\DPTaskTracker.Application.csproj" />
+      <ProjectReference Include="..\DPTaskTracker.Domain\DPTaskTracker.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="res\logo.png" />
+      <Resource Include="res\logo.png" />
+    </ItemGroup>
+
 </Project>

@@ -8,11 +8,13 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.18" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
+      <ProjectReference Include="..\DPTaskTracker.Application\DPTaskTracker.Application.csproj" />
+      <ProjectReference Include="..\DPTaskTracker.Domain\DPTaskTracker.Domain.csproj" />
     </ItemGroup>
 
 </Project>

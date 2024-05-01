@@ -5,14 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DPTaskTracker.Desktop"
         mc:Ignorable="d"
-        Title="Авторизация" Height="450" Width="800">
+        Title="Авторизация" Width="1366" MinWidth="1366" Height="768" MinHeight="768" WindowState="Maximized"
+        WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Label Content="Логин" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="usernameTextBox" HorizontalAlignment="Left" Height="23" Margin="10,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="160" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <Label Content="Пароль" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="120"/>
+        <Image Source="/res/logo.png" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 20"/>
 
-        <Button Content="Логин" HorizontalAlignment="Center" Margin="10,120,0,0" VerticalAlignment="Top" Width="100"/>
+        <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Логин" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <TextBox x:Name="tb_userName" HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="18"/>
+
+            <Label Content="Пароль" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <PasswordBox x:Name="pb_password" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="200" FontSize="18"/>
+
+            <Button x:Name="btn_login" Content="Вход" HorizontalAlignment="Center" Margin="10,125,0,0" VerticalAlignment="Top" Width="130" FontSize="20" Click="Btn_login_OnClick"/>
+        </Grid>
     </Grid>
 </Window>

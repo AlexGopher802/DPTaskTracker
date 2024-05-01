@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPTaskTracker.Api", "DPTask
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPTaskTracker.Desktop", "DPTaskTracker.Desktop\DPTaskTracker.Desktop.csproj", "{D61B7134-54C8-4580-B85F-2FE17DA786D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPTaskTracker.Application", "DPTaskTracker.Application\DPTaskTracker.Application.csproj", "{A81967C5-3BF0-4450-83A9-532702F1E6CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{D61B7134-54C8-4580-B85F-2FE17DA786D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D61B7134-54C8-4580-B85F-2FE17DA786D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D61B7134-54C8-4580-B85F-2FE17DA786D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A81967C5-3BF0-4450-83A9-532702F1E6CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81967C5-3BF0-4450-83A9-532702F1E6CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81967C5-3BF0-4450-83A9-532702F1E6CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81967C5-3BF0-4450-83A9-532702F1E6CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
