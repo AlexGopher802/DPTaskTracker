@@ -4,7 +4,7 @@ namespace DPTaskTracker.Desktop;
 
 public static class StaticSettings
 {
-    public const string ApiRoute = "http://localhost:5273/";
+    public const string ApiRoute = "http://localhost:5000/";
 
     private static HttpClient _httpClient;
 
