@@ -14,8 +14,15 @@ public class Program
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
 
-        services.AddDbContext<DatabaseContext>(options
-            => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        services.AddDbContext<DatabaseContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+                sqlServerOptionsAction: sqlOptions =>
+                {
+                    sqlOptions.EnableRetryOnFailure(
+                        maxRetryCount: 5,
+                        maxRetryDelay: TimeSpan.FromSeconds(30),
+                        errorNumbersToAdd: null);
+                }));
 
         var app = builder.Build();
 
